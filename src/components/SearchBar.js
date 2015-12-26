@@ -10,13 +10,9 @@ import Party from "../models/Party";
 import Tag from "../models/Tag";
 import Question from "../models/Question";
 
-import SearchResults from "../components/SearchResults";
+import { keys } from "../constants/Common";
 
-let Keys = {
-  enter: 13,
-  down: 40,
-  up: 38
-}
+import SearchResults from "../components/SearchResults";
 
 @connectToStores(["PartiskStore"], function(context, props) {
   return ({
@@ -112,13 +108,13 @@ class SearchBar extends Component {
     }
 
     switch (event.which) {
-      case Keys.up:
+      case keys.up:
         upButtonPressed(event);
         break;
-      case Keys.down:
+      case keys.down:
         downButtonPressed(event);
         break;
-      case Keys.enter:
+      case keys.enter:
         enterButtonPressed(event);
         break;
       default:
