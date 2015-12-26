@@ -31,8 +31,6 @@
   },
   "homepage": "https://github.com/gpbl/isomorphic-react-template",
   "peerDependencies": {
-    "node-sass": ">3.4.2",
-    "webpack": ">1.12.9"
   },
   "dependencies": {
     "autoprefixer-loader": "2.0.0",
@@ -94,7 +92,9 @@
     "karma-webpack": "1.7.0",
     "mocha": "2.2.5",
     "nodemon": "1.4.1",
+    "node-sass": "3.4.2",
     "react-hot-loader": "1.2.8",
-    "webpack-dev-server": "1.10.1"
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0"
   }
 }
