@@ -6,11 +6,6 @@ import { connectToStores } from "fluxible-addons-react";
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
 
-@connectToStores(["AppStore"], function(context, props) {
-  return ({
-    showSearchBar: context.getStore("AppStore").getShowSearchBar()
-  })
-})
 class Page extends Component {
   static propTypes = {
     footer: PropTypes.bool
@@ -21,7 +16,13 @@ class Page extends Component {
   }
 
   render() {
-    const { footer, showSearchBar } = this.props;
+    let { footer } = this.props;
+
+    let footerContainer = footer ? (
+      <div className="footer">
+        <Footer />
+      </div>
+    ) : null;
 
     return (
       <div>
@@ -40,15 +41,10 @@ class Page extends Component {
         <div className="content">
           { this.props.children }
         </div>
-
-        { footer &&
-          <div className="footer">
-            <Footer />
-          </div> }
+        { footerContainer }
       </div>
     );
   }
-
 }
 
 export default Page;

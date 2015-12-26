@@ -20,21 +20,11 @@ class AppStore extends BaseStore {
     this.isSubPageLoading = false;
     this.enabledParties = new Map();
     this.favourites = new Map();
-    this.showSearchBar = false;
   }
 
   setEnabledParty(partyId, enabled) {
     this.enabledParties = this.enabledParties.set(partyId, enabled);
     this.saveEnabledPartiesSettings();
-    this.emitChange();
-  }
-
-  getShowSearchBar() {
-    return this.showSearchBar;
-  }
-
-  setShowSearchBar(value) {
-    this.showSearchBar = value;
     this.emitChange();
   }
 
