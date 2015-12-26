@@ -14,7 +14,6 @@ import QATable from "../components/QATable/QATable";
   })
 )
 class AnswerPage extends Component {
-
   static propTypes = {
     question: PropTypes.object.isRequired,
     party: PropTypes.object.isRequired
@@ -38,7 +37,6 @@ class AnswerPage extends Component {
       </div>
     );
   }
-
 }
 
 export default AnswerPage;

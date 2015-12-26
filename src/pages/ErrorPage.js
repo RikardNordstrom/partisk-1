@@ -2,7 +2,6 @@ import React, { PropTypes } from "react";
 import SubPage from "../components/SubPage";
 
 class ErrorPage extends React.Component {
-
   static propTypes = {
     err: PropTypes.object
   }
@@ -22,7 +21,6 @@ class ErrorPage extends React.Component {
       </div>
     );
   }
-
 }
 
 export default ErrorPage;
