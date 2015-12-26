@@ -2,7 +2,6 @@ import Actions from "../constants/Actions";
 import { apiCallbackTimeout } from "../constants/Common";
 
 const AnswerActionCreators = {
-
   loadAnswers(context, {}, done) {
     context.service.read("answers", {}, { timeout: apiCallbackTimeout },
       (err, data) => {
@@ -13,10 +12,8 @@ const AnswerActionCreators = {
         context.dispatch(Actions.LOAD_ANSWERS_SUCCESS, {
           answers: data
         });
-
         done();
       }
-
     );
   },
 
@@ -26,13 +23,12 @@ const AnswerActionCreators = {
         if (err) {
           return done(err);
         }
+
         context.dispatch(Actions.LOAD_ANSWER_SUCCESS, data);
         done();
       }
-
     );
   }
-
 };
 
 export default AnswerActionCreators;

@@ -2,7 +2,6 @@ import Actions from "../constants/Actions";
 import { apiCallbackTimeout } from "../constants/Common";
 
 const PartyActionCreators = {
-
   loadParties(context, {}, done) {
     context.service.read("parties", {}, { timeout: apiCallbackTimeout },
       (err, data) => {
@@ -13,7 +12,6 @@ const PartyActionCreators = {
         context.dispatch(Actions.LOAD_PARTIES_SUCCESS, {
           parties: data
         });
-
         done();
       }
 
@@ -26,12 +24,12 @@ const PartyActionCreators = {
         if (err) {
           return done(err);
         }
+
         context.dispatch(Actions.LOAD_PARTY_SUCCESS, data);
         done();
       }
     );
   }
-
 };
 
 export default PartyActionCreators;

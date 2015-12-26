@@ -2,7 +2,6 @@ import Actions from "../constants/Actions";
 import { apiCallbackTimeout } from "../constants/Common";
 
 const AppActionCreators = {
-
   appDehydrated(context, {}, done) {
     setTimeout(function () {
         context.dispatch(Actions.APP_REHYDRATED, {});
@@ -33,7 +32,6 @@ const AppActionCreators = {
         }
 
         context.dispatch(Actions.LOAD_SETTINGS_SUCCESS, data);
-
         done();
       }
     );

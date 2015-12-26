@@ -2,7 +2,6 @@ import Actions from "../constants/Actions";
 import { apiCallbackTimeout } from "../constants/Common";
 
 const TagActionCreators = {
-
   loadTags(context, {}, done) {
     context.service.read("tags", {}, { timeout: apiCallbackTimeout },
       (err, data) => {
@@ -13,10 +12,8 @@ const TagActionCreators = {
         context.dispatch(Actions.LOAD_TAGS_SUCCESS, {
           tags: data
         });
-
         done();
       }
-
     );
   },
 
@@ -26,13 +23,12 @@ const TagActionCreators = {
         if (err) {
           return done(err);
         }
+
         context.dispatch(Actions.LOAD_TAG_SUCCESS, data);
         done();
       }
-
     );
   }
-
 };
 
 export default TagActionCreators;
