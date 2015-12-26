@@ -1,6 +1,5 @@
 import Actions from "../constants/Actions";
-
-const TIMEOUT = 20000;
+import { apiCallbackTimeout } from "../constants/Common";
 
 const AppActionCreators = {
 
@@ -27,7 +26,7 @@ const AppActionCreators = {
   },
 
   loadSettings(context, {}, done) {
-    context.service.read("settings", {}, { timeout: TIMEOUT },
+    context.service.read("settings", {}, { timeout: apiCallbackTimeout },
       (err, data) => {
         if (err) {
           return done(err);

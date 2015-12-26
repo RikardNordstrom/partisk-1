@@ -1,13 +1,10 @@
 import Actions from "../constants/Actions";
-
-// Tip: in your fetchr service calls, make sure you set a timeout higher than
-// the default of 3000ms. See https://github.com/yahoo/fetchr/issues/58
-const TIMEOUT = 20000;
+import { apiCallbackTimeout } from "../constants/Common";
 
 const AnswerActionCreators = {
 
   loadAnswers(context, {}, done) {
-    context.service.read("answers", {}, { timeout: TIMEOUT },
+    context.service.read("answers", {}, { timeout: apiCallbackTimeout },
       (err, data) => {
         if (err) {
           return done(err);
@@ -24,7 +21,7 @@ const AnswerActionCreators = {
   },
 
   loadAnswer(context, { questionId, partyId }, done) {
-    context.service.read("answer", { questionId, partyId }, { timeout: TIMEOUT },
+    context.service.read("answer", { questionId, partyId }, { timeout: apiCallbackTimeout },
       (err, data) => {
         if (err) {
           return done(err);
