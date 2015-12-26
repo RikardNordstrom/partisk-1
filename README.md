@@ -5,6 +5,7 @@
 ```bash
 echo "create database partisk" | mysql -u username -p
 mysql -u username -p partisk < partisk.sql
+sudo npm install -g webpack node-sass
 npm install
 npm run dev
 ```
