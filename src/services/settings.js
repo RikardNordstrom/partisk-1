@@ -2,7 +2,7 @@ import {Map} from "immutable";
 import { getParties } from "../utils/APIUtils";
 import Party from "../models/Party";
 
-export default {
+let Settings = {
   name: "settings",
 
   setEnabledPartiesDefault(req, res, done) {
@@ -18,15 +18,13 @@ export default {
       req.res.cookie('enabledParties', enabledParties.toObject());
 
       setTimeout(function () {
-        done(null, cookie);
+        done(null, req.res.cookie);
       }, 10);
     });
   },
 
   read(req, res, { questionId, partyId }, config, done) {
     let cookie = {};
-
-    console.log(req.cookies);
 
     if (req.cookies) {
       if (req.cookies.favourites) {
@@ -42,11 +40,13 @@ export default {
           cookie.enabledParties = new Map(req.cookies.enabledParties);
           done(null, cookie);
         } catch (err) {
-          setEnabledPartiesDefault(req, res, done);
+          Settings.setEnabledPartiesDefault(req, res, done);
         }
       } else {
-        setEnabledPartiesDefault(req, res, done);
+        Settings.setEnabledPartiesDefault(req, res, done);
       }
     }
   }
 };
+
+export default Settings;
