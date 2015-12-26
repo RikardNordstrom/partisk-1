@@ -1,9 +1,7 @@
 import Actions from "../constants/Actions";
-
-const TIMEOUT = 20000;
+import { apiCallbackTimeout } from "../constants/Common";
 
 const AppActionCreators = {
-
   appDehydrated(context, {}, done) {
     setTimeout(function () {
         context.dispatch(Actions.APP_REHYDRATED, {});
@@ -27,14 +25,13 @@ const AppActionCreators = {
   },
 
   loadSettings(context, {}, done) {
-    context.service.read("settings", {}, { timeout: TIMEOUT },
+    context.service.read("settings", {}, { timeout: apiCallbackTimeout },
       (err, data) => {
         if (err) {
           return done(err);
         }
 
         context.dispatch(Actions.LOAD_SETTINGS_SUCCESS, data);
-
         done();
       }
     );

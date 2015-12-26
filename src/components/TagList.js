@@ -10,8 +10,6 @@ class TagList extends Component {
   render() {
     let { tags } = this.props;
 
-    console.log(tags);
-
     let tagComponents = tags.map(function (tag) {
         return (
             <li key={tag.id}>
