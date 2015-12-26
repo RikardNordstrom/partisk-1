@@ -18,13 +18,16 @@ class Header extends Component {
 
   render() {
     let { parties } = this.props;
+
     let partiesList = parties.map(function (party, partyId) {
       let classes = {"party-logo-small": true};
       classes["party-logo-small-" + party.id] = true;
 
-      return <NavLink className="cell" key={partyId} routeName="party" navParams={{name: encodeURL(party.name)}}>
-        <span className={classnames(classes)} />
-      </NavLink>;
+      return (
+        <NavLink className="cell" key={partyId} routeName="party" navParams={{name: encodeURL(party.name)}}>
+          <span className={classnames(classes)} />
+        </NavLink>
+      );
     }).toArray();
 
     let style = {
@@ -56,7 +59,7 @@ class Row extends Component {
 
   static defaultProps = {
       visible: true
-  };
+  }
 
   constructor (props) {
     super(props);
@@ -69,7 +72,10 @@ class Row extends Component {
   }
 
   starQuestion () {
-    this.context.executeAction(starQuestion, {id: this.props.question.id, starred: !this.props.question.starred});
+    this.context.executeAction(starQuestion, {
+      id: this.props.question.id,
+      starred: !this.props.question.starred
+    });
   }
 
   render() {
@@ -78,16 +84,15 @@ class Row extends Component {
       if (question.answers.has(party.id)) {
         let answer = question.answers.get(party.id);
 
-        let classes = {
-          cell: true
-        };
-
+        let classes = { cell: true };
         classes[answer.answer === "ja" ? "yes" : "no"] = true;
 
-        return <NavLink className={classnames(classes)} key={answer.id} routeName="answer"
-          navParams={{name: encodeURL(party.name), title: encodeURL(question.title)}}>
-          {answer.answer}
-        </NavLink>
+        return (
+          <NavLink className={classnames(classes)} key={answer.id} routeName="answer"
+            navParams={{name: encodeURL(party.name), title: encodeURL(question.title)}}>
+            {answer.answer}
+          </NavLink>
+        );
       } else {
         return <span className="cell" key={question.id + "," + party.id}></span>;
       }
