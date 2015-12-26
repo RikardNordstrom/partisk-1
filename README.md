@@ -22,3 +22,10 @@ npm run prod    # then, run the production version
 ```
 
 then open [localhost:8080](http://localhost:8080).
+
+**Read more**
+[Fluxible](http://fluxible.io/) - Used to be able to render both in browser and server side
+[React](https://facebook.github.io/react/) - Rendering
+[Webpack](https://webpack.github.io/) - Building
+[Node](https://nodejs.org/en/) - Backend
+[Sass](http://sass-lang.com/) - CSS extension
